@@ -3,7 +3,7 @@ services:
   app:
     tty: true
     image: node
-    command: /bin/bash -c "npm install & npm start"
+    command: /bin/bash -c "npm install && npm start"
     working_dir: /usr/src/temp-docker
     volumes:
       - source: .
