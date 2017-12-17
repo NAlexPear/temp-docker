@@ -12,6 +12,9 @@ module.exports = function testLoader(source){
       fs.close(info.fd, (err) => {
         var tempOutput = fs.readFileSync(info.path, "utf8")
 
+        // Un-comment the line below to break docker temp file handling
+        temp.cleanupSync()
+
         callback(null, `module.exports = ${JSON.stringify(tempOutput)}`)
       })
     }
