@@ -6,13 +6,13 @@ module.exports = function testLoader(source){
   var json = JSON.parse(source)
   var output = json.names.join('\n')
 
-  temp.open('prefix', (err, info) => {
+  temp.open('', (err, info) => {
     if (!err) {
       fs.write(info.fd, output)
       fs.close(info.fd, (err) => {
         var tempOutput = fs.readFileSync(info.path, "utf8")
 
-        callback(null, tempOutput)
+        callback(null, `module.exports = ${JSON.stringify(tempOutput)}`)
       })
     }
   })
