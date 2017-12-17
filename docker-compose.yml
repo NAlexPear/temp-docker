@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  app:
+    tty: true
+    image: node
+    command: /bin/bash -c "npm install & npm start"
+    working_dir: /usr/src/temp-docker
+    volumes:
+      - source: .
+        target: /usr/src/temp-docker
+        type: bind
+      - source: node_modules
+        target: /usr/src/temp-docker/node_modules
+        type: volume
+
+volumes:
+  node_modules:

@@ -1,0 +1,19 @@
+{
+  "name": "temp-docker",
+  "version": "1.0.0",
+  "description": "A quick test repo demonstrating buggy temp file behavior in Docker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "temp",
+    "node",
+    "docker"
+  ],
+  "author": "Alex Pearson",
+  "license": "ISC",
+  "dependencies": {
+    "temp": "^0.8.3"
+  }
+}
