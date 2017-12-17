@@ -1,17 +1,5 @@
-var temp = require('temp').track()
-var fs = require('fs')
-var util = require('util')
-var exec = require('child_process').exec
+var content = require('./content.json')
 
-var fakeData = 'foo\nbar\nbaz\nluhrman'
+console.log('content from content.json ->', content);
 
-temp.open('prefix', function (err, info){
-  if (!err) {
-    fs.write(info.fd, fakeData);
-    fs.close(info.fd, function (err){
-      exec(`cat ${info.path}`, function (err, stdout){
-        console.log(stdout.trim())
-      })
-    })
-  }
-})
+document.write(content)
