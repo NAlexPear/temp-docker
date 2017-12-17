@@ -7,10 +7,10 @@ var fakeData = 'foo\nbar\nbaz\nluhrman'
 
 temp.open('prefix', function (err, info){
   if (!err) {
-    fs.write(info.fd, myData);
+    fs.write(info.fd, fakeData);
     fs.close(info.fd, function (err){
-      exec("grep foo '" + info.path + "' | wc -l", function (err, stdout) {
-        util.puts(stdout.trim())
+      exec(`cat ${info.path}`, function (err, stdout){
+        console.log(stdout.trim())
       })
     })
   }
